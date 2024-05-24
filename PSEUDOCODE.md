@@ -1,5 +1,4 @@
-# Pseudocode:
-
+# Pseudocode: 
 ## Logic to get computer's choice:
 ### Requirements: 
 - A function named getComputerChoice should be created
@@ -12,6 +11,44 @@
 
 - The output from the function should be communicated to the user
 
-### Pesudocode:
+___
+
+### Pseudocode:
+
+    FUNCTION getComputerChoice()
+
+        choice <- Math.floor(Math.random()*3); 
+
+        RETURN choice;
+
+    FUNCTION END
 
 
+*computerChoice* <- **CALL** *getComputerChoice()*
+
+**DECLARE** *acceptance* as **BOOL**;
+
+    (computerChoice === 0 || computerChoice === 1 || computerChoice === 2) ? acceptance =  true : acceptance  = false;
+
+<br>
+
+    FUNCTION intToValue (acceptance as BOOL, computerChoice as NUMBER)
+
+        DECLARE value as STRING;
+
+        IF (acceptance === true && computerChoice === 0)
+            THEN value <- "Rock";
+
+        ELSE IF (acceptance === true && computerChoice === 1) 
+            THEN value <- "Paper";
+
+        ELSE value <- "Scissors";
+
+        END IF
+
+        RETURN value;
+
+    END FUNCTION
+
+*finalComputerValue* <- **CALL** *intToValue* (*acceptance*, *computerChoice*);
+___
