@@ -1,3 +1,5 @@
+// computerChoice Logic Code--------------------------------------------------------------------------------
+
 // R,P,S - Rock,Paper, Scissors
 
 // Function outputs a random value between 0 - 3(exclusive) 
@@ -39,3 +41,49 @@ let intToValue = (acceptance, computerChoice) => {
 
 // Stored the value(R,P,S) into a variable
 let finalComputerValue = intToValue(acceptance, computerChoice);
+
+
+
+// humanChoice Logic Code--------------------------------------------------------------------------------
+
+// asks the user to input their choice
+let user_input = prompt("To play Rock-Paper-Scissors, Enter your choice below.")
+
+
+// capitalizes user input
+let capitalize = user_input.toUpperCase();
+
+
+// Function to check if the capitalized version of the user input is rock, paper or scissors. 
+// If it's not one of the three options then it returns an invalid input error message to the console.
+let choiceChecker = (capitalize) => {
+    
+    let humanChoice;
+
+    // Using ternary operator to mimic if/else statements
+    (capitalize === "ROCK") ? humanChoice = capitalize:
+    (capitalize === "PAPER") ? humanChoice = capitalize:
+    (capitalize === "SCISSORS") ? humanChoice = capitalize:
+    humanChoice = "Invalid input, That input is not what I was expecting. Refresh browser and try again";
+
+    return humanChoice;
+
+    // The code below is another way of recreating the code above by using if/else statements 
+
+    // if (capitalize === "ROCK"){
+    //     humanChoice = capitalize;
+    // }
+    // else if (capitalize === "PAPER"){
+    //     humanChoice = capitalize;
+    // }
+    // else if (capitalize === "SCISSORS"){
+    //     humanChoice = capitalize;
+    // }
+    // else {
+    //     humanChoice = "Invalid input, That input is not what I was expecting. Refresh browser and try again";
+    // }
+}
+
+// finalHumanChoice holds the userinput choice for the game
+let finalHumanChoice = choiceChecker(capitalize);
+

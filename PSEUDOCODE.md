@@ -1,7 +1,7 @@
 # Pseudocode: 
 ## Logic to get computer's choice:
 ### Requirements: 
-- A function named getComputerChoice should be created
+- A function named *getComputerChoice()* should be created
 
     - the built-in random function should be used to generate a random choice between 3 options (rock, paper, scissors).
 
@@ -51,4 +51,48 @@ ___
     END FUNCTION
 
 *finalComputerValue* <- **CALL** *intToValue* (*acceptance*, *computerChoice*);
+___
+
+## Logic to get human's choice: 
+### Requirements: 
+
+- Need a function called *humanChoice()* to receive and output the user's choice 
+    - The users choice should be inputed into the console using *prompt()*
+        - Need a message to inform them what to input and a space for the user to input their choice.
+    - Provide 3 options for the user to input. They can input one of the follow 3 options: 
+        - Rock
+        - Paper
+        - Scissors 
+    - Need a way to capitalize every user string input to avoid any string mismatch cases. (If user inputs "rOcK"/"rOCK")
+
+
+___
+### Pseudocode:
+
+    DECLARE user_input as STRING
+        
+    DISPLAY "Enter your choice"
+    user_input <- INPUT()
+
+    DECLARE capitalize as STRING
+    capitalize <- user_input.toUpperCase()
+
+    FUNCTION choiceChecker(capitalize) 
+        
+        DECLARE humanChoice as STRING
+
+        //Using ternary operator to mimic if/else statement
+        (capitalize === "ROCK") ? humanChoice = capitalize:
+        (capitalize === "PAPER") ? humanChoice = capitalize:
+        (capitalize === "SCISSORS") ? humanChoice = capitalize:
+        humanChoice = "Invalid input message";
+
+        RETURN humanChoice;
+
+    END FUNCTION
+
+    DECLARE finalHumanChoice as STRING;
+
+    finalHumanChoice <- CALL choiceChecker(capitalize)
+
 ___
