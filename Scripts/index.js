@@ -47,7 +47,7 @@ let finalComputerValue = intToValue(acceptance, computerChoice);
 // humanChoice Logic Code--------------------------------------------------------------------------------
 
 // asks the user to input their choice
-let user_input = prompt("To play Rock-Paper-Scissors, Enter your choice below.")
+let user_input = prompt("Welcome to Rock-Paper-Scissors!\nTo play the game, Enter your choice below.")
 
 
 // capitalizes user input
