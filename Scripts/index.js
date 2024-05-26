@@ -61,9 +61,9 @@ let choiceChecker = (capitalize) => {
     let humanChoice;
 
     // Using ternary operator to mimic if/else statements
-    (capitalize === "ROCK") ? humanChoice = capitalize:
-    (capitalize === "PAPER") ? humanChoice = capitalize:
-    (capitalize === "SCISSORS") ? humanChoice = capitalize:
+    (capitalize === "ROCK") ? humanChoice = "Rock":
+    (capitalize === "PAPER") ? humanChoice = "Paper":
+    (capitalize === "SCISSORS") ? humanChoice = "Scissors":
     humanChoice = "Invalid input, That input is not what I was expecting. Refresh browser and try again";
 
     return humanChoice;
@@ -86,4 +86,12 @@ let choiceChecker = (capitalize) => {
 
 // finalHumanChoice holds the userinput choice for the game
 let finalHumanChoice = choiceChecker(capitalize);
+
+// Prints the choices chosen by player and computer to the console.
+console.log(`For the game of Rock-Paper-Scissors \n You chose : ${finalHumanChoice} \n The browser chose : ${finalComputerValue}`);
+
+// Initializing human and computer score to zero
+let humanScore = 0;
+let computerScore = 0;
+
 
