@@ -46,27 +46,46 @@ let finalComputerValue = intToValue(acceptance, computerChoice);
 
 // humanChoice Logic Code--------------------------------------------------------------------------------
 
+// Function to check if the capitalized version of the user input is rock, paper or scissors. 
+    // If it's not one of the three options then it returns an invalid input error message to the console.
+    let choiceChecker = (capitalize) => {
+    
+        let humanChoice;
+        
+        // Using ternary operator to mimic if/else statements
+        (capitalize === "ROCK") ? humanChoice = "Rock":
+        (capitalize === "PAPER") ? humanChoice = "Paper":
+        (capitalize === "SCISSORS") ? humanChoice = "Scissors":
+        // (capitalize === null) ? console.log("Program was cancelled"):
+        humanChoice = "Invalid input, That input is not what I was expecting. Refresh browser and try again";
+        
+        return humanChoice;
+    }
+
 // asks the user to input their choice
 let user_input = prompt("Welcome to Rock-Paper-Scissors!\nTo play the game, Enter your choice below.")
 
 
-// capitalizes user input
-let capitalize = user_input.toUpperCase();
 
-
-// Function to check if the capitalized version of the user input is rock, paper or scissors. 
-// If it's not one of the three options then it returns an invalid input error message to the console.
-let choiceChecker = (capitalize) => {
+if(user_input !== null){
     
-    let humanChoice;
+    // capitalizes user input
+    capitalize = user_input.toUpperCase();
+    
+    // finalHumanChoice holds the userinput choice for the game
+    var finalHumanChoice = choiceChecker(capitalize);
+}
+else{
+    console.log("Program was cancelled")
+}
 
-    // Using ternary operator to mimic if/else statements
-    (capitalize === "ROCK") ? humanChoice = "Rock":
-    (capitalize === "PAPER") ? humanChoice = "Paper":
-    (capitalize === "SCISSORS") ? humanChoice = "Scissors":
-    humanChoice = "Invalid input, That input is not what I was expecting. Refresh browser and try again";
 
-    return humanChoice;
+
+
+
+
+
+
 
     // The code below is another way of recreating the code above by using if/else statements 
 
@@ -82,10 +101,11 @@ let choiceChecker = (capitalize) => {
     // else {
     //     humanChoice = "Invalid input, That input is not what I was expecting. Refresh browser and try again";
     // }
-}
 
-// finalHumanChoice holds the userinput choice for the game
-let finalHumanChoice = choiceChecker(capitalize);
+
+
+
+
 
 // Initializing human and computer score to zero
 let humanScore = 0;
