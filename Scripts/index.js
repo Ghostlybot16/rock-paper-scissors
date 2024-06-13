@@ -47,12 +47,16 @@ let finalComputerValue = intToValue(acceptance, computerChoice);
 // humanChoice Logic Code--------------------------------------------------------------------------------
 
 // asks the user to input their choice
-let user_input = prompt("Welcome to Rock-Paper-Scissors!\nTo play the game, Enter your choice below.")
 
 
-// capitalizes user input
-let capitalize = user_input.toUpperCase();
-
+let capitalize; 
+if(user_input === null){
+    console.log("Program Cancelled");
+}
+else{
+    // capitalizes user input
+    capitalize = user_input.toUpperCase();
+}
 
 // Function to check if the capitalized version of the user input is rock, paper or scissors. 
 // If it's not one of the three options then it returns an invalid input error message to the console.
@@ -87,9 +91,74 @@ let choiceChecker = (capitalize) => {
 // finalHumanChoice holds the userinput choice for the game
 let finalHumanChoice = choiceChecker(capitalize);
 
+
+//----------------------------------------------------------------------------
 // Initializing human and computer score to zero
 let humanScore = 0;
 let computerScore = 0;
+
+let choosingWinner = (humanChoice, computerChoice) => {
+    
+    let human = humanChoice;
+    let computer = computerChoice;
+    
+    switch(true){
+        case(human === "Rock" && computer === "Scissors"): 
+        humanScore++; 
+        return human;
+        
+        case(human === "Rock" && computer === "Rock"): return human;
+
+        case(human === "Rock" && computer === "Paper"):
+        computerScore++; 
+        return computer;
+
+        case(human === "Paper" && computer === "Rock"):
+        humanScore++;
+        return human;
+
+        case(human === "Paper" && computer === "Paper"): return human;
+
+        case(human === "Paper" && computer === "Scissors"):
+        computerScore++;
+        return computer;
+
+        case(human === "Scissors" && computer === "Paper"):
+        humanScore++;
+        return human;
+
+        case(human === "Scissors" && computer === "Scissors"): return human;
+
+        case(human === "Scissors" && computer === "Rock"):
+        computerScore++;
+        return computer;
+
+        default: console.log("Invalid Input, Refresh Browser and try again"); break;
+    }
+}
+
+choosingWinner(finalHumanChoice, finalComputerValue);
+
+let playEntireRound = (humanChoice, computerChoice) => {
+    let human = humanChoice;
+    let computer = computerChoice;
+
+    for(let i = 0; i < 5; i++){
+        let user_input = prompt("Welcome to Rock-Paper-Scissors!\nTo play the game, Enter your choice below.");
+
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
 
 let playRound = (finalHumanChoice, finalComputerValue) => {
     
@@ -159,11 +228,11 @@ let playRound = (finalHumanChoice, finalComputerValue) => {
         break;
 
         default:
-            console.log("Invalid Input, Refresh Browser and try again");
+            console.log("");
         break;
     }
 }
 
-playRound(finalHumanChoice, finalComputerValue);
+//playRound(finalHumanChoice, finalComputerValue);
 
 
