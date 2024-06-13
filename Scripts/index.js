@@ -47,11 +47,13 @@ let finalComputerValue = intToValue(acceptance, computerChoice);
 // humanChoice Logic Code--------------------------------------------------------------------------------
 
 // asks the user to input their choice
-let user_input = prompt("Welcome to Rock-Paper-Scissors!\nTo play the game, Enter your choice below.")
+// let user_input = prompt("Welcome to Rock-Paper-Scissors!\nTo play the game, Enter your choice below.")
+let user_input;
 
 
 // capitalizes user input
-let capitalize = user_input.toUpperCase();
+// let capitalize = user_input.toUpperCase();
+let capitalize;
 
 
 // Function to check if the capitalized version of the user input is rock, paper or scissors. 
@@ -67,103 +69,74 @@ let choiceChecker = (capitalize) => {
     humanChoice = "Invalid input, That input is not what I was expecting. Refresh browser and try again";
 
     return humanChoice;
-
-    // The code below is another way of recreating the code above by using if/else statements 
-
-    // if (capitalize === "ROCK"){
-    //     humanChoice = capitalize;
-    // }
-    // else if (capitalize === "PAPER"){
-    //     humanChoice = capitalize;
-    // }
-    // else if (capitalize === "SCISSORS"){
-    //     humanChoice = capitalize;
-    // }
-    // else {
-    //     humanChoice = "Invalid input, That input is not what I was expecting. Refresh browser and try again";
-    // }
 }
 
 // finalHumanChoice holds the userinput choice for the game
 let finalHumanChoice = choiceChecker(capitalize);
 
-// Initializing human and computer score to zero
-let humanScore = 0;
-let computerScore = 0;
+//-------------------------------------------------------------------------------
 
-let playRound = (finalHumanChoice, finalComputerValue) => {
+let entireGame = (humanChoice, computerChoice) => {
+
+    let playRound = (humanChoice, computerChoice) => {
     
-    let human = finalHumanChoice;
-    let computer = finalComputerValue;
-    
-    switch(true){
+        let human = humanChoice;
+        let computer = computerChoice;
         
-        // Case: Rock Win
-        case (human === "Rock" && computer === "Scissors"):
-            console.log(`You chose: ${human}\nBrowser chose: ${computer}\n\nYou Win! :)\n${human} beats ${computer}`);
-            humanScore++;
-            console.log(`Current Score:\n${humanScore}:${computerScore}`);
-        break;
+        switch(true){
+            
+            // Case: Rock Win
+            case (human === "Rock" && computer === "Scissors"):return {human : human, computer: computer}
 
-        // Case: Rock Tie
-        case (human === "Rock" && computer === "Rock"):
-            console.log(`Tie Game :O\nNo points will be awarded\n\nYou and the computer chose ${human}`);
-            console.log(`Current Score:\n${humanScore}:${computerScore}`);
-        break;
+            // Case: Rock Tie
+            case (human === "Rock" && computer === "Rock"):return {human : human, computer: computer}
+    
+            // Case: Rock Lose
+            case (human === "Rock" && computer === "Paper"): return {human : human, computer: computer}
+    
+            // Case: Paper Win
+            case (human === "Paper" && computer === "Rock"): return {human : human, computer: computer}
+    
+            // Case: Paper Tie
+            case (human === "Paper" && computer === "Paper"): return {human : human, computer: computer}
+    
+            // Case: Paper Lose
+            case (human === "Paper" && computer === "Scissors"): return {human : human, computer: computer}
+    
+            // Case: Scissors Win
+            case (human === "Scissors" && computer === "Paper"): return {human : human, computer: computer}
+    
+            // Case: Scissors Tie
+            case (human === "Scissors" && computer === "Scissors"): return {human : human, computer: computer}
+    
+            // Case: Scissors Lose
+            case (human === "Scissors" && computer === "Rock"): return {human : human, computer: computer}
+    
+            default: console.log("Invalid Input, Refresh Browser and try again");
+            break;
+        }
+    }
 
-        // Case: Rock Lose
-        case (human === "Rock" && computer === "Paper"):
-            console.log(`You chose: ${human}\nBrowser chose: ${computer}\n\nYou Lose :(\n${computer} beats ${human}`);
-            computerScore++;
-            console.log(`Current Score:\n${humanScore}:${computerScore}`);
-        break;
 
-        // Case: Paper Win
-        case (human === "Paper" && computer === "Rock"):
-            console.log(`You chose: ${human}\nBrowser chose: ${computer}\n\nYou Win! :)\n${human} beats ${computer}`);
-            humanScore++;
-            console.log(`Current Score:\n${humanScore}:${computerScore}`);
-        break;
 
-        // Case: Paper Tie
-        case (human === "Paper" && computer === "Paper"):
-            console.log(`Tie Game :O\nNo points will be awarded\n\nYou and the computer chose ${human}`);
-            console.log(`Current Score:\n${humanScore}:${computerScore}`);
-        break;
+    for(let i = 0; i < 5; i++){
+        let human = humanChoice;
+        let computer = computerChoice;
 
-        // Case: Paper Lose
-        case (human === "Paper" && computer === "Scissors"):
-            console.log(`You chose: ${human}\nBrowser chose: ${computer}\n\nYou Lose :(\n${computer} beats ${human}`);
-            computerScore++;
-            console.log(`Current Score:\n${humanScore}:${computerScore}`);
-        break;
+        // Initializing human and computer score to zero
+        let humanScore = 0;
+        let computerScore = 0;
 
-        // Case: Scissors Win
-        case (human === "Scissors" && computer === "Paper"):
-            console.log(`You chose: ${human}\nBrowser chose: ${computer}\n\nYou Win! :)\n${human} beats ${computer}`);
-            humanScore++;
-            console.log(`Current Score:\n${humanScore}:${computerScore}`);
-        break;
+        user_input = prompt("Welcome to Rock-Paper-Scissors!\nTo play the game, Enter your choice below.");
+        capitalize = user_input.toUpperCase();
 
-        // Case: Scissors Tie
-        case (human === "Scissors" && computer === "Scissors"):
-            console.log(`Tie Game :O\nNo points will be awarded\n\nYou and the computer chose ${human}`);
-            console.log(`Current Score:\n${humanScore}:${computerScore}`);
-        break;
-
-        // Case: Scissors Lose
-        case (human === "Scissors" && computer === "Rock"):
-            console.log(`You chose: ${human}\nBrowser chose: ${computer}\n\nYou Lose :(\n${computer} beats ${human}`);
-            computerScore++;
-            console.log(`Current Score:\n${humanScore}:${computerScore}`);
-        break;
-
-        default:
-            console.log("Invalid Input, Refresh Browser and try again");
-        break;
+        playRound(human, computer);
+        // let {humanResult, computerResult} = playRound(human, computer);
+        // console.log(`human chose: ${humanResult}\ncomputer chose: ${computerResult}`);
     }
 }
+entireGame(finalHumanChoice, finalComputerValue);
 
-playRound(finalHumanChoice, finalComputerValue);
+
 
 
